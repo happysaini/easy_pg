@@ -1,0 +1,39 @@
+{% extends 'main/index.html' %}
+{% block display_tenant %}
+<h2>Welcome To EasyPG</h2>
+    <h4 class="display-4">
+		PG Available		
+	</h4>
+	<h5 class="display-5">
+		Welcome {{name}}		
+	</h5>
+
+	{% for item in pgdata %}
+	
+	<div class="row jumbotron bg-white">
+		<div class="col-sm-3">
+	<img src="/static/media/{{item.pic}}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />	
+		</div>
+		<div class="col-sm-7 float-right " style="align:center;">
+		<b class="">
+		PG Location :
+		</b> {{item.pg_location}}<br>
+		<b>
+		PG Rent :
+		</b> {{item.pg_rent}}<br>
+		<b>
+		Contact Owner :
+		</b> {{item.owner_contact}}<br>
+		</div>
+		<div class="col-sm-2 mt-5">
+		<button class="btn btn-success" name="view">
+			View
+		</button>
+		&nbsp;
+		<button class="btn btn-danger" name="block">
+			Block
+		</button>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}

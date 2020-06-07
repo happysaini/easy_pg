@@ -1,0 +1,37 @@
+{% extends 'main/index.html' %}
+{% block help %}
+<div class="row">
+	<div class="col-sm-3 side-bar">
+		<h3 class="display-3">
+			HELP
+		</h3>
+		<br>
+		<h5 class="display-5 text-white" style="text-align: center;">
+			<a href="{% url 'tenant_help' %}">
+			Tenant's Help
+			</a>
+		</h5>
+	
+		<br>
+		<h5 class="display-5 text-white" style="text-align: center;">
+			<a href="{% url 'owner_help' %}">
+			Owner's Help
+			</a>
+		</h5>
+		<br>		
+		 <hr class="d-sm-none">
+	</div>
+	
+	<div class="col-sm-9">
+		<p>
+		
+		{% block tenant_help %}
+		{% endblock %}
+		
+		{% block owner_help %}
+		{% endblock %}
+		
+		</p>
+	</div>
+</div>
+{% endblock %}

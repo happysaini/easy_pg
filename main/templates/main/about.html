@@ -1,0 +1,36 @@
+{% extends 'main/index.html' %}
+{% block about %}
+<div class="" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-3 side-bar">
+      <h2>About Us </h2>
+      <h5>Easy PG</h5>
+     
+      <p>Helps you find Your room in less time without any cost</p>
+      
+      <h3>Also See</h3>
+      <p>Read Documents to know more about us</p>
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'termsandconditions' %}">Terms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">Help</a>
+        </li>
+        
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-9">
+      <h2>Easy PG Web Application</h2>
+      <h5>Project Starts : 20 April , 2019</h5>
+      <div class="">This Project is an initiative to reduce the burden of finding rooms as paying guest.</div>
+      <br>
+      <p>
+      EasyPG is a web application which serve the main purpose of helping both  Owner and Tenant. Owner can post the Details of room or house online from where tenant can approach him or Tenants can also post request to web application for getting suitable place in particular area from where owner can approach him.
+      </p>
+      <br>
+      </div>
+  </div>
+</div>
+{% endblock %}

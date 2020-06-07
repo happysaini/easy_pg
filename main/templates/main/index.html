@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<link rel="image" type="image/jpg" src="{% static 'image/icon1.jpg' %}">
+<link rel="image" type="image/png" src="{% static 'image/icon2 (2).png' %}">
+
+
+  <title>Easy PG</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'style/boots.css' %}">
+  <script src="{% static 'scripts/script1.js' %}"></script>
+  <script src="{% static 'scripts/script2.js' %}"></script>
+  <script src="{% static 'scripts/script3.js' %}"></script>
+   
+ <style>
+ .vl {
+  border-left: 6px solid green;
+  height: 50px;
+}
+ .image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+.container:hover .overlay {
+  width: 100%;
+}
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+ .side-bar{
+ background-color:black;
+ color:white;
+ }
+ .transbox {
+  margin: 30px;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+  body{
+  background-color:rgb();
+  }
+ .sticky {
+  position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030; 
+}
+.easy{
+font-size: 25px;
+}
+.top{
+background-color:white;
+}
+ </style>
+</head>
+<body>
+
+<div class="container"
+ 	 style="margin-top:0px;
+ 	 margin-bottom:20px">
+   	 <div class="container mt-3">
+   			<a href="/">
+  				<img src="{% static 'image/icon2 (2).png' %}"
+  					width="6%"
+  					heigth="6%"/>
+  			</a>
+ 			&nbsp;
+  			<span class="easy">
+   				<a href="/" style="color:black">
+  				Easy PG
+  				</a>
+  			<span>
+  			<div class="float-right">
+  			{% if u_id is None %}
+  	           	<div class="container">
+  					<a class="btn btn-primary"
+  	 					href="{% url 'signview' %}">
+  					SignUp
+  					</a>
+  					<a class="btn btn-primary"
+  			 			href="{% url 'loginview' %}">
+  			 		LogIn
+  					</a>
+  			  	</div>	
+  			 {% elif u_id is not None %}
+				<div class="container">
+				{{name}}
+  					<a class="btn btn-primary"
+  	 					href="{% url 'logout' %}">
+  					logout
+  					</a>
+				</div>
+				{% endif %}  			 
+  			  	  
+  			</div>
+ 	</div>       
+</div>
+
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark sticky">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'help' %}">Help</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+
+{% block home %}
+{% endblock %}
+
+
+<div class="container" style="margin-top:50px; background-color:rgb(230,230,230);">
+{% block display_tenant %}
+{% endblock %}
+
+{% block display_owner %}
+{% endblock %}
+
+{% block edit %}
+{% endblock %}
+
+{% block about %}
+{% endblock %}
+
+{% block signup %}
+{% endblock %}
+
+{% block login %}
+{% endblock %}
+
+{% block help %}
+{% endblock %}
+
+{% block tandc %}
+{% endblock %}
+
+{% block loginown %}
+{% endblock %}
+
+{% block signupown %}
+{% endblock %}
+</div>
+
+<hr>
+<footer class="">
+	<div class="jumbotron bg-dark mb-0">
+ 		<div class="container">
+ 			<div class="row">
+				
+				<div class="col-sm-3">
+					<h5 class="display-5 text-white">
+						Developer
+					</h5>
+					<p>
+						<a href="http://btes.co.in/" style="color:white">
+						BTES
+						</a>
+					</p>					
+				</div> 
+				<div class="vl"></div>
+				<div class="col-sm-3">
+					<h5 class="display-5 text-white">
+						Partners
+					</h5>
+					<p>
+						<a style="color:white" href="https://www.youtube.com/channel/UC1bJ_mCNn-YFXr3ptTDF31g">
+						AFOD Productions
+						</a>
+					</p>
+					
+				</div> 
+				<div class="col-sm-3">
+					<h5 class="display-5 text-white">
+						Terms And Conditions
+					</h5>
+					<p>
+						<a href="{% url 'termsandconditions' %}" style="color:white">
+						Policies
+						</a>
+					</p>					
+				</div>  		
+ 			</div>
+ 		</div>
+ 		<hr class="bg-secondary">
+		<hr class="bg-secondary">	
+		<p class=" text-white">
+		
+		Copyright 2019 EasyPG 
+		<hr class="bg-secondary">
+		<hr class="bg-secondary">
+		</p>	
+	</div>	
+ </footer>
+</body>
+</html>
